@@ -19,6 +19,10 @@ html, body{
   height: 60px;
 }
 
+#output{
+  width:150px;
+  height:150px;
+}
 
 .footer{
 /*position: absolute;*/
@@ -11419,9 +11423,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 .bell img {
   -webkit-animation: ring 8s .7s ease-in-out infinite;
-  -webkit-transform-origin: 50% 4px;
   -moz-animation: ring 8s .7s ease-in-out infinite;
-  -moz-transform-origin: 50% 4px;
   animation: ring 8s .7s ease-in-out infinite; }
 
 @-webkit-keyframes ring {
@@ -12279,9 +12281,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     width: 16rem; }
     [data-layout="horizontal"] .nav-header .nav-control {
       display: none; }
-    [data-layout="horizontal"] .nav-header .brand-logo {
-      /*  padding-left: 0;
-       justify-content: center; */ }
   [data-layout="horizontal"] .header {
     width: 100%;
     padding-left: 16rem; }
@@ -20667,7 +20666,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     transition-duration: 0.05s; }
 
 .mail-list a {
-  vertical-align: middle;
   padding: 0.625rem 0.9375rem;
   display: block;
   background: transparent;
@@ -22381,7 +22379,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   top: .5rem; }
 .weather-one h2 {
   display: inline-block;
-  float: right;
   font-size: 4.8rem; }
 .weather-one .city {
   position: relative;
@@ -23912,7 +23909,7 @@ button {
   display: inline-block;
   margin: -0.5rem 0.75rem -0.5rem -1.188rem;
   padding: 0.5rem 0.80rem 0.5rem;
-  float: left; }
+}
   @media only screen and (max-width: 1199px) {
     .btn-icon-left {
       margin: -0.5rem 0.75rem -0.5rem -0.800rem; } }
@@ -25126,14 +25123,12 @@ code {
 .jsgrid-grid-body::-webkit-scrollbar-track,
 .dataTables_scrollBody::-webkit-scrollbar-track,
 .table-responsive::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   background-color: #F5F5F5; }
 .jsgrid-grid-body::-webkit-scrollbar-thumb,
 .dataTables_scrollBody::-webkit-scrollbar-thumb,
 .table-responsive::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #7e7e7e; }
 
 .multi-steps > li.is-active:before, .multi-steps > li.is-active ~ li:before {
@@ -26042,8 +26037,7 @@ code {
   border-color: rgba(255, 255, 255, 0.2) !important; }
 
 .table {
-  color: strong;
-    color-color: #6e6e6e; }
+  color: strong; }
   .table th, .table td {
     border-color: #f0f1f5;
     padding: 12px 9px; }
