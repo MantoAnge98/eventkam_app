@@ -1,3 +1,61 @@
+<div class="authincation h-100">
+  <div class="container h-100">
+    <div class="row justify-content-center h-100 align-items-center">
+      <div class="col-md-6">
+        <div class="authincation-content">
+          <div class="row no-gutters">
+            <div class="col-xl-12">
+              <div class="auth-form">
+                <h4 class="text-center mb-4">Sign in your account</h4>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="form-group field">
+                      <label class="mb-1"><strong>Email</strong></label>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "hello@example.com", class:"form-control" %>
+                  </div>
+
+                  <div class="form-group field">
+                      <label class="mb-1"><strong>Password</strong></label>
+                      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+                  </div>
+                  <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                    <div class="form-group field">
+                      <div class="custom-control custom-checkbox ml-1">
+                          <% if devise_mapping.rememberable? %>
+                            <div class="field">
+                              <%= f.check_box :remember_me, class:"custom-control-input", id:"basic_checkbox_1" %>
+                              <%= f.label :remember_me, class:"custom-control-label", for:"basic_checkbox_1" %>
+                            </div>
+                          <% end %>
+                      </div>
+                    </div>
+                    <div class="form-group field">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                  </div>
+
+                  <div class="actions text-center">
+                    <%= f.submit "Sign Me In", class:"btn btn-primary btn-block" %>
+                  </div>
+                <% end%>
+
+                <div class="new-account mt-3">
+                    <p>Don't have an account? <a class="text-primary" href="#">Sign up</a></p>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%
+=begin%>
+ 
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -21,6 +79,10 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+  
 <% end %>
 
 <%= render "devise/shared/links" %>
+ 
+<%
+=end%>
