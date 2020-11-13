@@ -13,7 +13,7 @@ gem 'puma', '~> 3.11'
 
 # Frontend
 gem 'sass-rails', '~> 5.0'
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 3.5'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'

@@ -7,7 +7,7 @@ html, body{
   font-family: 'poppins'!important
 }
 
-.navbar{
+.header{
   box-shadow: 0 .15rem 1.75rem 0 rgba(33,40,50,.15)!important;
 }
 
@@ -24,8 +24,14 @@ html, body{
   height:150px;
 }
 
+footer .text-muted{
+  color: rgb(204, 204, 204)!important;
+}
+
 .footer{
 /*position: absolute;*/
+padding-left:0!important;
+font-weight: 600!important;
 position: fixed;
 left: 0;
 bottom: 0;
@@ -55,6 +61,83 @@ background-color: #09335e!important;
   font-size: 1rem;
 }
 
+
+/**/
+.nav-header {
+  height: 7.5rem;
+  width: 21.563rem;
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  transition: all .2s ease;
+  z-index: 5;
+}
+
+.nav-header .brand-title {
+  margin-left: 20px;
+  max-width: 120px;
+  margin-top: 5px;
+}
+
+.nav-header .logo-compact {
+  display: none;
+}
+
+.nav-header .logo-abbr {
+  max-width: 52px;
+}
+
+
+.nav-header .brand-logo {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.125rem;
+  color: #fff;
+  text-decoration: none;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: 700;
+}
+
+.nav-control {
+  cursor: pointer;
+  position: absolute;
+  right: -4.0625rem;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  font-size: 1.4rem;
+  padding: 2px 0.5rem 0;
+  border-radius: 2px;
+}
+
+.nav-header {
+  position: fixed;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.nav-header {
+  height: 7.5rem;
+  width: 21.563rem;
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  transition: all .2s ease;
+  z-index: 5;
+}
+
+/**/
 
 
 .gradient_one {
@@ -9142,8 +9225,6 @@ a {
       padding-left: 17rem; } }
   .header .header-content {
     height: 100%;
-    padding-left: 5.3125rem;
-    padding-right: 1.875rem;
     align-items: center;
     display: flex; }
     @media only screen and (max-width: 767px) {
@@ -23546,6 +23627,8 @@ button {
   @media only screen and (max-width: 1400px) {
     .btn {
       padding: 0.625rem 1rem;
+      padding-left:10px;
+      padding-right:10px;
       font-size: 0.813rem; } }
   .btn-transparent {
     background-color: transparent; }

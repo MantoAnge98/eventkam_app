@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* ## version
+ruby 2.6.5
+rails 5.2.4
 
-Things you may want to cover:
+# Eventkam (english version)
+* ## Overview
+  - Event dirctory        
+  - Events page                
+  - Join events
 
-* Ruby version
+![](/public/image/logo_event_kam.png)
 
-* System dependencies
 
-* Configuration
+Eventkam is an application for managing the events of each user. It allows users to participate in other users' events. With a system of reminder of the date of each event to the organizers and all those who participate in the event.
 
-* Database creation
+* ## List of functions
+- [ ] Function User Signup
+- [ ] Function User Create, Update, Delete
+- [ ] Function User Profil Page (save image profile)
+- [ ] Function Login
+- [ ] User can create, modify and delete an event. 
+- [ ] User Participate in an Event
+- [ ] View details of an event
+- [ ] Links events and users
+- [ ] Display the creator of the event on the event
+- [ ] Event Search Function 
+- [ ] Event Detail Screen
+- [ ] Profil page (save image profile)
+- [ ] Participation Event (Register on somoene else's event)
+- [ ] Event cancellation  (Unsubscribe on somoene else's event)
+- [ ] Check if a user can be the organizer or a participant of the event
+- [ ] Counts the list of participants of your events
+- [ ] Calendar of events
 
-* Database initialization
+* ## Skills 
+- [ ] Devise Function
+- [ ] Follow Function
+- [ ] Comment Function
+- [ ] Event calendar (outside the curriculum)
 
-* How to run the test suite
+* ## Catalog design,Table_Definition,Screen transition diagram,Wire frame.
 
-* Services (job queues, cache servers, search engines, etc.)
+https://docs.google.com/spreadsheets/d/14Ti91n6xmqfav17PJSHAAzUMK6OFEF2htyzX37mlGFA/edit?usp=sharing
 
-* Deployment instructions
-
-* ...
+* ## Gem to use
+* carrierwave
+* mini_magick
+* devise
+* icalendar
