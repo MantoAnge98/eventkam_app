@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 col-lg-2">
+      <%= image_tag (@user.avatar_thumbnail), style: 'height:150px;width:150px;'%>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td><strong>Name </strong>:<%= @user.name %></td>
+          </tr>
+          <tr>
+            <td><strong>Email </strong><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

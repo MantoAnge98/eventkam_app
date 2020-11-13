@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!--<%= render 'layouts/user_navbar' %> -->
+      <div class="form-inline">
+        <%= form_with(url: users_path, method: :get, local: true) do |f|%>
+          <%= f.text_field :name , class:"form-control mr-sm-2", placeholder: "search startup by it name"%>
+          <%= f.submit'search', class:"btn btn-outline-success my-2 my-sm-0"%><br>
+          <span> <%= link_to "Clear search",users_path %></span>
+           <%= link_to  "Your Profile", user_path(current_user.id), class: "btn btn-primary" %> |
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @users.each do |user| %>
+      <% unless user == current_user %>
+      <div class="card card-body col-md-3 ">
+        <p>
+          <%= image_tag (user.avatar_thumbnail), style: 'height:30px;width:30px;'%>
+          <%= link_to "#{user.name}", user %>
+          <%= user.email %>
+          <%= user.startups.pluck (:name) %>
+        </p>
+      </div>
+      <% end %>
+    <% end %>
+    <hr>
+  </div>
+    <%= paginate @users %>
+  </div>

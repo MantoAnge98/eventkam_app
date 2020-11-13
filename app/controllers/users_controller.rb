@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   def index
-    @users = User.all.order(name: :ASC).page(params[:page]).per(20)
+    @users = User.all.order(name: :ASC).page params[:page]
     @users = User.where(["name LIKE ?", "%#{params[:name]}%"]) if params[:name]
   end
 
@@ -9,5 +8,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  
 end
