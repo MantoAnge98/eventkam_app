@@ -1,11 +1,12 @@
+
 <% if user_signed_in? %>
   <h1 class="mt-5 d-flex justify-content-center">Welcome to EventkaM App</h1>
   <p class="lead d-flex justify-content-center">You can plan your events, add your friends and do a lot of things.!</p>
 
   <div class="row justify-content-center">
-    <%= link_to "Add Event", new_user_registration_path, class:"btn btn-success col-2"%>
+    <%= link_to "Add Event", new_event_path, class:"btn btn-success col-2"%>
   &nbsp;
-    <%= link_to "Go to Dashboard", new_user_session_path, class:"btn btn-success col-2"%>
+    <%= link_to "Go to Dashboard", events_path, class:"btn btn-success col-2"%>
   </div>
 
 <%else%>
@@ -20,3 +21,4 @@
     <%= link_to "Log In", new_user_session_path, class:"btn btn-success col-2"%>
   </div>
 <%end%>
+

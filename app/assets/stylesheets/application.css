@@ -7,6 +7,10 @@ html, body{
   font-family: 'poppins'!important
 }
 
+#iconEdit{
+  margin-top: 17px;
+}
+
 .header{
   box-shadow: 0 .15rem 1.75rem 0 rgba(33,40,50,.15)!important;
 }
@@ -15,8 +19,8 @@ html, body{
   background-color: #ffffff!important; 
 }
 
- .logo-area{
-  height: 60px;
+ div .logo-area img{
+  width:100px;
 }
 
 #output{
@@ -100,8 +104,6 @@ background-color: #09335e!important;
   font-size: 1.125rem;
   color: #fff;
   text-decoration: none;
-  padding-left: 50px;
-  padding-right: 50px;
   font-weight: 700;
 }
 

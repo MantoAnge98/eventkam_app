@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
   validates :name , presence: true , uniqueness: true
   
+
+  has_many :events, foreign_key: 'organizer_id'
+  has_many :participants, foreign_key: 'participants_id', class_name: 'Participant'
+  has_many :participants, through: :participants
+
+
   def avatar_thumbnail
     if avatar.present?
       avatar.url
@@ -17,18 +23,5 @@ class User < ApplicationRecord
   end
 
   paginates_per 4
-
-
-  def follow!(other_user)
-    active_relationships.create!(followed_id: other_user.id)
-  end
-
-  def following?(other_user)
-    active_relationships.find_by(followed_id: other_user.id)
-  end
-
-  def unfollow!(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
-  end
   
 end

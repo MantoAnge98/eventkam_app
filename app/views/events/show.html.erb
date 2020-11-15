@@ -1,0 +1,37 @@
+
+
+<h1 class="uk-heading-line"><span><%= @event.name %></span></h1>
+
+
+<article class="uk-article">
+    <p class="uk-article-meta">Created by <a href="#"><%= @event.user.name %> </a> on <%= format_date @event.created_at %>.
+
+    <p class="uk-text-lead"><%= @event.content %></p>
+
+
+
+    <div class="uk-grid-small uk-child-width-auto" uk-grid>
+      <% if joinable_event(@user_registered, @event) == 1  %>  
+      <button class="uk-button uk-button-primary" disabled>  You are already registred for this event </button>
+      <% elsif joinable_event(@user_registered, @event) == 2 %>
+      <button class="uk-button uk-button-primary" disabled>  Sing In or Sing up to register to an event </button>
+      <% elsif joinable_event(@user_registered, @event) == 3 %>
+      <button class="uk-button uk-button-danger" disabled>Event ended</button>
+      <% else %>
+      <%= button_to "Join Event", join_event_atendees_path(@event), class: "uk-button uk-button-primary" %>
+      <% end %>  
+    </div>
+
+</article>
+ 
+<h1 class="uk-heading-line"><span>Participant</span></h1>
+
+  <ul class="uk-list uk-list-striped">
+     <% @participant.each do |a| %>
+      <li> <%= a.name %> </li>
+    <% end %>
+</ul>
+  
+
+
+<%= link_to "Back", events_path %>

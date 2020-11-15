@@ -1,5 +1,3 @@
 /*@import 'comment';*/
-.img {
-  width: 100%;
-  height: auto;
-}
+
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'

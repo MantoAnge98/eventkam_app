@@ -1,26 +1,38 @@
- <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light static-top" id="navbarfix">
-    <div class="container">
-      <%= link_to image_tag("logo/logo.png"),root_path , class:"logo-area"%>
-      <a class="navbar-brand" href="#">EventkaM App</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign up</a>
+<div class="header">
+  <div class="header-content">
+    <nav class="navbar navbar-expand">     
+      <div class="collapse navbar-collapse justify-content-between">
+        <div class="header-left">
+          <%= link_to image_tag("logo/logo.png"),root_path , class:"logo-area"%>
+        </div>
+
+        <ul class="navbar-nav header-right" style="margin-right:125px">   
+          <li class="nav-item header-profile">
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hello User <i class="fa fa-user"></i>
+              </button>
+              <div class="dropdown-menu">
+                <div class="btn-group">
+                 <a class="dropdown-item" href="/">Home <i class="fa fa-home"></i></a>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="btn-group">
+                  <%= link_to "Login", new_user_session_path, class:"dropdown-item"%>
+                  <i class="fa fa-sign-in " style="margin-top: 12px;"></i>
+                </div>
+                <div class="dropdown-divider"></div> 
+                <div class="btn-group">
+                  <%= link_to "Regsiter", new_user_registration_path, class:"dropdown-item"%>
+                  <i class="fa fa-user-plus" style="margin-top: 12px;"></i>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
+   
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
+</div>
+

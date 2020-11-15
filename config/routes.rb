@@ -5,8 +5,11 @@ Rails.application.routes.draw do
     root to: "home#index"
 
     resources :users, only: %i[show index]
-
-    resources :relationships, only: [:create, :destroy]
-
-    resources :favorites, only: [:create, :destroy]
+   
+    resources :events, only: [:new, :create, :show, :index]
+  
+    resources :participants,  only: [:new, :create, :show, :index] do
+      match '/join', to: 'participants#join_event', via: :post, on: :collection
+    end
+    
 end

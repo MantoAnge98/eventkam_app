@@ -1,0 +1,56 @@
+
+
+<h1>Events</h1>
+
+<div class="d-flex order-manage p-3 align-items-center mb-4">
+
+  <a href="javascript:void(0);" class="text-primary font-w500">Future Events<i class="ti-angle-left ml-1"></i></a> | &nbsp;
+  <a href="javascript:void(0);" class="text-primary font-w500">Past Events<i class="ti-angle-center ml-1"></i></a>
+  <a href="javascript:void(0);" class="ml-auto text-primary font-w500">Conversation<i class="ti-angle-right ml-1"></i></a>
+</div>
+
+<div class="col-xl-12">
+  <div class="card">
+    <div class="card-body pt-2">
+      <div class="table-responsive ">
+        <table class="table items-table">
+          <tbody>
+          <tr>
+            <th class="my-0 text-black font-w500 fs-20">Event information</th>
+            <th style="width:10%;" class="my-0 text-black font-w500 fs-17">Number of participants</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>
+              <div class="media">
+                <img class="mr-3 img-fluid rounded" width="85" src="#" alt="DexignZone">
+                <div class="media-body">
+                  <small class="mt-0 mb-1 text-primary font-w500">MAIN COURSE</small>
+                  <h5 class="mt-0 mb-2 text-black mb-4">Chicken curry special with cucumber</h5>
+                  <div class="star-review fs-16">
+                    <p class="ml-3 text-dark">Instalation and Customization (cost per hour)</p>
+                  </div>
+                  <a href="javascript:void()" class="badge badge-rounded badge-primary">views</a>
+                  <a href="javascript:void()" class="badge badge-rounded badge-primary">Participate</a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <h4 class="my-0 text-secondary font-w600"><a href="javascript:void()" class="badge badge-info">6</a></h4>
+            </td>
+            <td>
+              <a href="#" class="ti-close fs-28 text-danger las la-times-circle"></a>
+            </td>
+          </tr>
+        </tbody></table>
+      </div>	
+    </div>
+  </div>
+</div>
+
+<ul class="uk-switcher uk-margin">
+    <li><%= render "events_listing_future"%></li>  
+    <li><%= render "events_listing_past"%></li>
+</ul>
+
+
