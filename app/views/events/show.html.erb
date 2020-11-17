@@ -62,7 +62,7 @@
                          <h4 class="text-primary">Date Start</h4>
                           <p class="mb-2"><%=@event.date_start%></p>
                           <hr>
-                        <h4 class="text-primary">Date Start</h4>
+                        <h4 class="text-primary">Date End</h4>
                         <p class="mb-2"><%=@event.date_end%></p>
                       </div>
                   </div>
@@ -75,7 +75,7 @@
     <% elsif joinable_event(@user_registered, @event) == 2 %>
     <button type="button" class="btn btn-danger" disabled>  Sing In or Sing up to register to an event </button>
     <% elsif joinable_event(@user_registered, @event) == 3 %>
-    <button class="btn btn-primary" disabled>Event ended</button>
+    <button class="btn btn-primary" disabled>Event Finished</button>
     <% else %>
     <%= button_to "Join Event", join_participants_path(@event), class: "btn btn-primary" %>
     <% end %> 

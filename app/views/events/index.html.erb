@@ -35,7 +35,7 @@
                 <div class="media">
                    <%= image_tag (event.image_thumbnail), class:"mr-3 img-fluid rounded", width:"85",alt:"DexignZone"%>
                   <div class="media-body">
-                    <small class="mt-0 mb-1 text-primary font-w500">Create By: <%= @user.name %></small>
+                    <small class="mt-0 mb-1 text-primary font-w500">Create By: <%= event.user.name %></small>
                     <h5 class="mt-0 mb-2 text-black mb-4">Event Name: <%= event.title %></h5>
                     <div class="star-review fs-16">
                       <p class="ml-3 text-dark" style="word-wrap: break-word"><%= event.content%></p>

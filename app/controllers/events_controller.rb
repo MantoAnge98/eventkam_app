@@ -11,7 +11,6 @@ class EventsController < ApplicationController
     else
       @events = Event.all.order(title: :ASC).page params[:page]
     end  
-    @users = User.all
   end
 
   # GET /events/1

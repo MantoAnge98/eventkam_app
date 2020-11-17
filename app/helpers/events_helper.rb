@@ -1,10 +1,10 @@
 module EventsHelper
   def joinable_event(user, event)
-    if user == true && event.date_start >= Time.now
+    if user == true && event.date_start >= Time.now && event.date_end >= Time.now
       1
-    elsif user == 'Not registered' && event.date_start >= Time.now
+    elsif user == 'Not registered' && event.date_start >= Time.now && event.date_end >= Time.now
       2
-    elsif event.date_start < Time.now
+    elsif event.date_end < Time.now
       3
     else
       4
