@@ -1,10 +1,11 @@
 <div class="container">
   <div class="form-head d-flex mb-3 align-items-start">
-    <div class="mr-auto d-none d-lg-block">
+    <div class="mr-auto">
       <h2 class="text-black font-w600 mb-0">EventKam > Profile</h2>
       <% if @user == current_user%>
         <p class="mb-0">Welcome <%= @user.name %></p>
          <%= link_to "Update profile", edit_user_registration_path, class:"btn btn-primary"%> 
+         <%= link_to "Delete Account", user_path(@user.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"%> 
       <%else%>
         <p class="mb-0">Welcome <%= current_user.name %></p>
         <p class="text-primary mb-0">This is <%= @user.name %> profile.</p>

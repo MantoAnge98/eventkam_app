@@ -1,6 +1,7 @@
 class LabelsController < ApplicationController
   before_action :set_label, only: [:edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: %i[index show]
+  
   def index
     @label = Label.all.order(created_at: :desc).page params[:page]
   end

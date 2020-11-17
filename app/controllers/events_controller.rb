@@ -5,11 +5,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @user = current_user
+    @user = User.all
     if params[:title]
       @events = Event.where(["title LIKE ?", "%#{params[:title]}%"]).page params[:page] if params[:title]
     else
-      @events = Event.all.order(title: :ASC).page params[:page]
+      @events = Event.all.order(title: :DESC).page params[:page]
     end  
   end
 

@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user, foreign_key: 'organizer_id'
-  has_many :participants
-  has_many :parts, through: :participants, foreign_key: 'participants_id'
+  has_many :participants,  dependent: :destroy
+  has_many :parts, through: :participants, foreign_key: 'participants_id', dependent: :destroy
 
   scope :past_events, -> { where('date_start < ?', Time.now.end_of_day) }
   scope :future_events, -> { where('date_start >= ?', Time.now.end_of_day) }
