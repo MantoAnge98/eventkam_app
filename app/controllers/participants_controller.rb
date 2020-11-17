@@ -1,4 +1,4 @@
-class ParcitipantsController < ApplicationController
+class ParticipantsController < ApplicationController
   before_action :set_participant, only: %i[show edit update destroy]
 
   # GET /participants
@@ -20,7 +20,7 @@ class ParcitipantsController < ApplicationController
   def edit; end
 
   def join_event
-    event = Participant.create(event_id: params[:format], atendee_id: current_user[:id])
+    event = Participant.create(event_id: params[:format], participants_id: current_user[:id])
     event.save
     flash[:notice] = 'Thank you for joining our event!'
     redirect_to event_path(params[:format])

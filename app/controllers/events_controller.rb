@@ -5,18 +5,21 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @user = current_user
     @past_events = Event.past_events
     @future_events = Event.future_events
-    @events = Event.all
+    
+    @events = Event.all.order(title: :ASC).page params[:page]
+    @users = User.all
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @participants = @event.participants
+    @parts = @event.parts
     if current_user
       user_id = current_user.id
-      @user_registered = @participants.where(id: user_id).exists?
+      @user_registered = @parts.where(id: user_id).exists?
     else
       @user_registered = 'Not registered'
     end
@@ -25,7 +28,6 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = current_user.events.build
-    @event
   end
 
   # GET /events/1/edit
@@ -38,7 +40,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -52,7 +54,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -80,6 +82,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:title, :image, :content, :date_start, :date_end, :creator_id)
+    params.require(:event).permit(:title, :image, :content, :date_start, :date_end, :organizer_id)
   end
 end

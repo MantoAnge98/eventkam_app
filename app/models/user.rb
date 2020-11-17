@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_many :events, foreign_key: 'organizer_id'
   has_many :participants, foreign_key: 'participants_id', class_name: 'Participant'
-  has_many :participants, through: :participants
+  has_many :participate, through: :participants
 
 
   def avatar_thumbnail

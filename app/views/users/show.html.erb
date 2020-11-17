@@ -2,7 +2,13 @@
   <div class="form-head d-flex mb-3 align-items-start">
     <div class="mr-auto d-none d-lg-block">
       <h2 class="text-black font-w600 mb-0">EventKam > Profile</h2>
-      <p class="mb-0">Welcome <%= @user.name %></p>
+      <% if @user == current_user%>
+        <p class="mb-0">Welcome <%= @user.name %></p>
+         <%= link_to "Update profile", edit_user_registration_path, class:"btn btn-primary"%> 
+      <%else%>
+        <p class="mb-0">Welcome <%= current_user.name %></p>
+        <p class="text-primary mb-0">This is <%= @user.name %> profile.</p>
+      <%end%>
     </div>
     
     <div class="dropdown custom-dropdown">

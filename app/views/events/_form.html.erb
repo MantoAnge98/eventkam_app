@@ -1,17 +1,62 @@
+<div id="error_explanation">  
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+      <%= pluralize(@event.errors.count, "error") %> prohibited
+      this event from being saved:
+      </h4>
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger">
+          <li><%= msg %></li>
+        </div>
+      <% end %>
+      </ul>
+    </div>  
+  <% end %>
+</div>
 
-<%= simple_form_for(@event) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= form_with(model: @event, local: true) do |f| %>
+  <div class="widget-stat card">
+    <div class="form-inputs card-body p-4">
+      <div class="form-group">
+        <label class="mb-1"><strong>Title</strong></label>
+          <%= f.text_field :title, autofocus: true, autocomplete: "username", class:"form-control", placeholder:"Event name", :required=> true%>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :title, input_html: {class:"uk-input"} %>
-    <%= f.input :content, input_html: {class:"uk-input"}  %>
-    <%= f.input :image, input_html: {class:"uk-select uk-width-1-4"}  %>
-    <%= f.input :date_start, input_html: {class:"uk-select uk-width-1-4"}  %>
-    <%= f.input :date_end, input_html: {class:"uk-select uk-width-1-4"}  %>
+      <div class="file-field form-group">
+        <div class="my-post-content pt-3">
+          <div class="profile-uoloaded-post border-bottom-1 pb-5">
+            <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" alt="Image" id="output" class="img-fluid">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="mb-1"><strong>Image</strong></label>
+            <%= f.file_field :image, autofocus: true, accept:"image/*", autocomplete: "Event image",class:"form-control", style:"width:100%", onchange:"loadFile(event)", :required=> true%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="mb-1"><strong>Description</strong></label>
+          <%= f.text_area :content, autofocus: true, autocomplete: "description", class:"form-control", placeholder:"Event description", :required=> true%>
+      </div>
+
+      <div class="form-group">
+        <label class="mb-1"><strong>Date Start</strong></label>
+          <%= f.date_field :date_start, autofocus: true, autocomplete: "Date Start", class:"form-control", :value => Time.now.strftime("%Y-%m-%d"), :required=> true%>
+      </div>
+
+       <div class="form-group">
+        <label class="mb-1"><strong>Date End</strong></label>
+          <%= f.date_field :date_end, autofocus: true, autocomplete: "Date End", class:"form-control", :value => Time.now.strftime("%Y-%m-%d"), :required=> true%>
+      </div>
+
+      <div class="text-center mb-2">
+        <%= link_to "All Event", events_path, :class => "btn btn-secondary col-3" %> 
+        <%= f.submit "Create Event", :class => "btn btn-primary col-3"%>
+      </div>
+
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "uk-button uk-button-primary uk-margin-top uk-width-1-1 uk-margin-bottom" %>
-  </div>
 <% end %>

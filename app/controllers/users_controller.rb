@@ -5,10 +5,11 @@ class UsersController < ApplicationController
     @users = User.all.order(name: :ASC).page params[:page]
     @users = User.where(["name LIKE ?", "%#{params[:name]}%"]) if params[:name]
  
-    # #participants
-    # @user = current_user
-    # @participant = @user.participants
-    # @events_created = @user.events
+    @user = current_user
+    @participate = @user.participate
+    @events_created = @user.events
+    @past_events_user = @user.participate.past_events
+    @future_events_user = @user.participate.future_events
   end
 
 

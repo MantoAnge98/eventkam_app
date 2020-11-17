@@ -267,6 +267,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
+    simple_form (5.0.3)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simplecov (0.19.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -348,6 +351,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   seed-fu (~> 2.3)
   selenium-webdriver
+  simple_form
   simplecov
   spring
   spring-commands-rspec
