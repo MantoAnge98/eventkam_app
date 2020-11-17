@@ -44,7 +44,7 @@
                      <%= link_to "See the Post", event_path(event.id), class: "badge badge-rounded badge-primary" %>  
                     <% if current_user && current_user == event.user%>
                       <%= link_to "Edit", edit_event_path(event), class: "badge badge-rounded badge-secondary"%>
-                      <%= link_to "Delete", event_path(event.id), method: :delete, class: "badge badge-rounded badge-primary"%> 
+                      <%= link_to "Delete", event_path(event.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "badge badge-rounded badge-primary"%> 
                     <%else%>
                       <span class="badge badge-xl light badge-warning">Warning
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">

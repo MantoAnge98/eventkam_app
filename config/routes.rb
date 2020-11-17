@@ -7,8 +7,13 @@ Rails.application.routes.draw do
 
     resources :users,  only: [:new, :create, :show, :index]
  
-    resources :events, only: [:new, :create, :show, :search, :search, :edit, :index]
   
+    resources :events do
+      collection do
+        post :confirm
+      end
+    end
+
     resources :participants,  only: [:new, :create, :show, :edit, :index] do
       match '/join', to: 'participants#join_event', via: :post, on: :collection
     end
