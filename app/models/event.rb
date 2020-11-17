@@ -14,6 +14,15 @@ class Event < ApplicationRecord
 
   mount_uploader :image, ImageUploader 
 
+  has_many :labellings, dependent: :destroy
+  has_many :labels, through: :labellings
+
+   #name is string so function scope is
+   scope :title_search, -> (text_search) {where("(title LIKE ?)", "%#{text_search}%")}
+   #status is integer so function scope is
+   scope :status_search, -> (text_search) { where(status: text_search)}
+   #Define enum function
+
   def total_particpants
     0
   end

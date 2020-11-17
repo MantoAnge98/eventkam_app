@@ -3,10 +3,13 @@
   <h1>Events</h1>
 
   <div class="d-flex order-manage p-3 align-items-center mb-4">
-
-    <a href="javascript:void(0);" class="text-primary font-w500">Future Events<i class="ti-angle-left ml-1"></i></a> | &nbsp;
-    <a href="javascript:void(0);" class="text-primary font-w500">Past Events<i class="ti-angle-center ml-1"></i></a>
-    <a href="javascript:void(0);" class="ml-auto text-primary font-w500">Conversation<i class="ti-angle-right ml-1"></i></a>
+    <%= form_with(url: events_path, method: :get, local: true) do |f|%> 
+      <div class="row text-center">
+        <%= f.text_field :title , class:"form-control col-xl-4 ", placeholder: "search Event"%>
+        <%= f.submit'search', class:"btn btn-primary col-xl-4 "%><br>
+        <%= link_to "Clear search",events_path, class:"btn btn-info col-xl-4" %>
+      </div>
+    <% end %>
   </div>
 
   <div class="card">
@@ -17,7 +20,7 @@
   </div>
 
 
-<div class="card">
+  <div class="card">
     <div class="card-body pt-2">
       <div class="table-responsive ">
         <table class="table items-table">
@@ -63,12 +66,21 @@
           </tbody>
           <%end%>
         </table>
+         
       </div>	
+    </div> 
+    <div class="card">
+      <div class="card-body text-center" >
+        <%= paginate @events, theme: 'twitter-bootstrap-4',
+                    pagination_class: "pagination-sm",
+                    nav_class: "d-inline-b"%>
+      </div>
     </div>
+
   </div>
-
-
 </div>
+
+ 
 
 
 

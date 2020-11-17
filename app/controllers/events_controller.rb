@@ -6,10 +6,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @user = current_user
-    @past_events = Event.past_events
-    @future_events = Event.future_events
-    
-    @events = Event.all.order(title: :ASC).page params[:page]
+    if params[:title]
+      @events = Event.where(["title LIKE ?", "%#{params[:title]}%"]).page params[:page] if params[:title]
+    else
+      @events = Event.all.order(title: :ASC).page params[:page]
+    end  
     @users = User.all
   end
 
@@ -25,8 +26,20 @@ class EventsController < ApplicationController
     end
   end
 
+  def search 
+    @users = User.all
+    if params[:search].blank?  
+      redirect_to events_path, notice: "Empty field!"
+    else  
+      @parameter = params[:search].downcase  
+      @events = Event.all.where("lower(title) LIKE :search", search: @parameter)  
+    end  
+  end
+
+
   # GET /events/new
   def new
+    @user = User.all
     @event = current_user.events.build
   end
 

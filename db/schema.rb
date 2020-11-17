@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_152916) do
+ActiveRecord::Schema.define(version: 2020_11_17_073340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2020_11_13_152916) do
     t.datetime "updated_at", null: false
     t.bigint "organizer_id"
     t.index ["organizer_id"], name: "index_events_on_organizer_id"
+  end
+
+  create_table "labellings", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "label_id"
+    t.index ["event_id"], name: "index_labellings_on_event_id"
+    t.index ["label_id"], name: "index_labellings_on_label_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_labels_on_user_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -58,6 +73,9 @@ ActiveRecord::Schema.define(version: 2020_11_13_152916) do
   end
 
   add_foreign_key "events", "users", column: "organizer_id"
+  add_foreign_key "labellings", "events"
+  add_foreign_key "labellings", "labels"
+  add_foreign_key "labels", "users"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users", column: "participants_id"
 end

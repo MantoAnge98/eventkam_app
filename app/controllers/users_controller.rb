@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @users = User.all.order(name: :ASC).page params[:page]
-    @users = User.where(["name LIKE ?", "%#{params[:name]}%"]) if params[:name]
+
+    if params[:name]
+      @users = User.where(["name LIKE ?", "%#{params[:name]}%"]).page params[:page] if params[:name]
+    else
+      @users = User.all.order(name: :ASC).page params[:page]
+    end  
  
     @user = current_user
     @participate = @user.participate
