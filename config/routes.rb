@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   #Home 
   root to: "home#index"
 
-  get '/search' => 'pages#search', :as => 'search_page'
-
   resources :users,  only: [:new, :create, :show, :destroy, :index]
 
   resources :events do
@@ -27,7 +25,6 @@ Rails.application.routes.draw do
 
   resources :participants,  only: [:index] do
     match '/join', to: 'participants#join_event', via: :post, on: :collection 
-    
     match '/canceled', to: 'participants#canceled_event', via: :post, on: :collection
   end
 
