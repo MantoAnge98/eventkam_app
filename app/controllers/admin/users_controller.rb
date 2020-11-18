@@ -1,7 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
   before_action :authenticate_user!
-  before_action :check_admin
 
 
   def index
@@ -25,7 +24,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-    @task = @user.tasks
+    @event = @user.events
   end
   
   def edit

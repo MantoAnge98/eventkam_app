@@ -20,7 +20,7 @@
       </div>
     </div>
     <hr>
-    <%if logged_in? || current_user.id == @user.id %>
+    <%if @user == current_user%>
       <div class="action">
         <div class="row">
           <div class="col-12">
@@ -40,13 +40,12 @@
         </div>
       </div>
     <%end%>
-<hr>
   <table class="table">
     <thead class="thead-light">
         <tr>
           <th>User name</th>
           <th>Admin</th>
-          <th>Task Number</th>
+          <th>Event Number</th>
           <th>Action</th>
         </tr>
     </thead>
@@ -55,7 +54,7 @@
           <tr>
               <td><%= link_to "#{user.name}", admin_user_path(user)%></td>
               <td><%= user.admin %></td>
-              <td><%= user.tasks.count %></td>
+              <td><%= user.events.count %></td>
               <td>
                 <%= link_to "Edit Admin", edit_admin_user_path(user),:class=>"btn btn-secondary" %>
                 <%= link_to "Delete Admin", admin_user_path(user), method: :delete, data: { confirm: 'are you sure ?' },:class=>"btn btn-danger" %>
