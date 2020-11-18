@@ -27,6 +27,16 @@ class ParticipantsController < ApplicationController
     redirect_to event_path(params[:format])
   end
 
+
+  def canceled_event
+    event = Participant.find_by(event_id: params[:format], participants_id: current_user[:id])
+    event.destroy
+    flash[:notice] =  "The event is removed from your participation"
+    redirect_to events_path
+  end
+
+
+
   # POST /participants
   # POST /participants.json
   def create

@@ -79,6 +79,12 @@
     <% else %>
     <%= button_to "Join Event", join_participants_path(@event), class: "btn btn-primary" %>
     <% end %> 
+
+    <% if canceled_event(@user_registered, @event) == 1  %>  
+    <%= button_to "Canceled Event", canceled_participants_path(@event), class: "btn btn-danger" %>
+    <% end %> 
+
+
     <hr>
     <h1 class="uk-heading-line"><span>Participants</span></h1>
       <ul class="uk-list uk-list-striped">
