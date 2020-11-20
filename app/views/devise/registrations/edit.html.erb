@@ -11,6 +11,7 @@
     <div class="form-group">
       <strong><label class="mb-1"><span>Add photo</span></label></strong>
       <%= f.file_field :avatar, autofocus: true, accept:"image/*", autocomplete: "avatar",class:"form-control", onchange:"loadFile(event)"%>
+      <%= f.hidden_field :avatar_cache%>
     </div>
   </div>
 

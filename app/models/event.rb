@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+  mount_uploader :image, ImageUploader 
+
+
   belongs_to :user, foreign_key: 'organizer_id'
   has_many :participants,  dependent: :destroy
   has_many :parts, through: :participants, foreign_key: 'participants_id', dependent: :destroy
@@ -8,20 +11,12 @@ class Event < ApplicationRecord
 
   validates :title , presence: true
   validates :content, presence: true, :length => { :maximum => 500 } 
-  validates :image, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true
-
-  mount_uploader :image, ImageUploader 
 
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
 
-   #name is string so function scope is
-   scope :title_search, -> (text_search) {where("(title LIKE ?)", "%#{text_search}%")}
-   #status is integer so function scope is
-   scope :status_search, -> (text_search) { where(status: text_search)}
-   #Define enum function
 
   def total_particpants
     0
@@ -33,7 +28,7 @@ class Event < ApplicationRecord
     if image.present?
       image.url
     else
-      '/default-avatar.png'
+      '/image.png'
     end
   end
 

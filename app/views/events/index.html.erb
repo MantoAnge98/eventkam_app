@@ -35,22 +35,17 @@
                 <div class="media">
                    <%= image_tag (event.image_thumbnail), class:"mr-3 img-fluid rounded", width:"85",alt:"DexignZone"%>
                   <div class="media-body">
-                    <small class="mt-0 mb-1 text-primary font-w500">Create By: <%= event.user.name %></small>
+                    <small >Create By:<%= link_to "#{event.user.name}", user_path(event.user.id), class:"mt-0 mb-1 text-primary font-w500" %></small>
                     <h5 class="mt-0 mb-2 text-black mb-4">Event Name: <%= event.title %></h5>
                     <div class="star-review fs-16">
                       <p class="ml-3 text-dark" style="word-wrap: break-word"><%= event.content%></p>
                     </div>
 
                      <%= link_to "See the Post", event_path(event.id), class: "badge badge-rounded badge-primary" %>  
-                    <% if current_user && current_user == event.user%>
+                    <% if current_user && current_user == event.user || current_user.try(:admin?)%>
                       <%= link_to "Edit", edit_event_path(event), class: "badge badge-rounded badge-secondary"%>
                       <%= link_to "Delete", event_path(event.id), method: :delete, data: {confirm: 'Are you sure?'}, class: "badge badge-rounded badge-primary"%> 
                     <%else%>
-                      <span class="badge badge-xl light badge-warning">Warning
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
-                        </span>
-                        You may not modify or delete the content of others. 
-                      </span>
                     <%end%>
                    
                   </div>

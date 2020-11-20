@@ -1,14 +1,15 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
-
+  before_action :login_check, only: %i[index new create edit show destroy]
+  before_action :user_check, only: %i[edit destroy]
 
   def index
     @user = User.all
     if params[:title]
       @events = Event.where(["title LIKE ?", "%#{params[:title]}%"]).page params[:page] if params[:title]
     else
-      @events = Event.all.order(title: :DESC).page params[:page]
+      @events = Event.all.order(creat_at: :DESC).page params[:page]
     end  
   end
 
@@ -20,6 +21,7 @@ class EventsController < ApplicationController
     else
       @user_registered = 'Not registered'
     end
+    
   end
 
   def search 
@@ -60,10 +62,20 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    redirect_to events_path, notice: 'Event was successfully destroyed.'
   end
 
+
   private
+    def user_check
+      redirect_to events_path, notice: 'access deny' unless current_user.id == @event.user.id || current_user.try(:admin?)
+    end
+
+    def login_check
+      unless user_signed_in?
+        redirect_to root_path, notice: "Please Sign up or login before"
+      end 
+    end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event
@@ -72,6 +84,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:title, :image, :content, :date_start, :date_end, :organizer_id)
+    params.require(:event).permit(:title, :image, :image_cahe, :content, :date_start, :date_end, :organizer_id)
   end
 end

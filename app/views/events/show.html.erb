@@ -71,7 +71,7 @@
       </div>
 
     <% if joinable_event(@user_registered, @event) == 1  %>  
-    <button type="button"  class="btn btn-warning" disabled>  You are already registred for this event </button>
+    <button type="button"  class="btn btn-warning" disabled>  You are registred for this event </button>
     <% elsif joinable_event(@user_registered, @event) == 2 %>
     <button type="button" class="btn btn-danger" disabled>  Sing In or Sing up to register to an event </button>
     <% elsif joinable_event(@user_registered, @event) == 3 %>

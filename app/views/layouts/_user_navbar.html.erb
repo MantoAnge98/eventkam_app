@@ -9,6 +9,9 @@
 
         <ul class="navbar-nav header-right">   
           <div class="navbar-nav">
+            <% if current_user.admin?%>
+              <%= link_to "Admin Page",admin_users_path, class:"nav-item nav-link" , method: :get%>
+            <%end%>
             <a class="nav-item nav-link" href="/">Home <i class="fa fa-home"></i></a>
       
             <%= link_to "Event", events_path, class:"nav-item nav-link" , method: :get%>

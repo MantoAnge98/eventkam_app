@@ -32,7 +32,8 @@
         </div>
         <div class="form-group">
           <label class="mb-1"><strong>Image</strong></label>
-            <%= f.file_field :image, autofocus: true, accept:"image/*", autocomplete: "Event image",class:"form-control", style:"width:100%", onchange:"loadFile(event)", :required=> true%>
+            <%= f.file_field :image, autofocus: true, accept:"image/*" ,class:"form-control", style:"width:100%", onchange:"loadFile(event)" %>
+            <%= f.hidden_field :image_cache %>
         </div>
       </div>
 
@@ -43,12 +44,12 @@
 
       <div class="form-group">
         <label class="mb-1"><strong>Date Start</strong></label>
-          <%= f.date_field :date_start, autofocus: true, autocomplete: "Date Start", class:"form-control", :value => Time.now.strftime("%Y-%m-%d"), :required=> true%>
+          <%= f.date_field :date_start, autofocus: true, autocomplete: "Date Start", class:"form-control", :required=> true%>
       </div>
 
        <div class="form-group">
         <label class="mb-1"><strong>Date End</strong></label>
-          <%= f.date_field :date_end, autofocus: true, autocomplete: "Date End", class:"form-control", :value => Time.now.strftime("%Y-%m-%d"), :required=> true%>
+          <%= f.date_field :date_end, autofocus: true, autocomplete: "Date End", class:"form-control", :required=> true%>
       </div>
 
       <div class="text-center mb-2">

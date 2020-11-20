@@ -7,7 +7,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name , presence: true , uniqueness: true
-  
 
   has_many :events, foreign_key: 'organizer_id', dependent: :destroy
   has_many :participants, foreign_key: 'participants_id', class_name: 'Participant',  dependent: :destroy

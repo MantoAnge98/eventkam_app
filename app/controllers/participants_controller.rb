@@ -4,6 +4,7 @@ class ParticipantsController < ApplicationController
   
 
   def index
+    @events = Event.all
     @participants = Participant.all
   end
 
@@ -16,6 +17,7 @@ class ParticipantsController < ApplicationController
   def edit; end
 
   def join_event
+    @user = User.all
     event = Participant.create(event_id: params[:format], participants_id: current_user[:id])
     event.save
     flash[:notice] = 'Thank you for joining our event!'
@@ -39,7 +41,6 @@ class ParticipantsController < ApplicationController
       else
         render :new 
       end
-    end
   end
 
   def update
