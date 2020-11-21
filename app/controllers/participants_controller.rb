@@ -3,16 +3,16 @@ class ParticipantsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   
 
-  def index
-    @events = Event.all
-    @participants = Participant.all
-  end
+  # def index
+  #   @events = Event.all
+  #   @participants = Participant.all
+  # end
 
   def show; end
 
-  def new
-    @participant = Participant.new
-  end
+  # def new
+  #   @participant = Participant.new
+  # end
 
   def edit; end
 
@@ -33,32 +33,32 @@ class ParticipantsController < ApplicationController
   end
 
 
-  def create
-    @participant = Participant.new(participant_params)
-      if @participant.save
-        redirect_to @participant, notice: 'Participant was successfully created.' 
-        render :show, status: :created, location: @participant 
-      else
-        render :new 
-      end
-  end
+  # def create
+  #   @participant = Participant.new(participant_params)
+  #     if @participant.save
+  #       redirect_to @participant, notice: 'Participant was successfully created.' 
+  #       render :show, status: :created, location: @participant 
+  #     else
+  #       render :new 
+  #     end
+  # end
 
-  def update
-    respond_to do |format|
-      if @participant.update(participant_params)
-        redirect_to @participant, notice: 'Participant was successfully updated.' 
-      else
-        render :edit 
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @participant.update(participant_params)
+  #       redirect_to @participant, notice: 'Participant was successfully updated.' 
+  #     else
+  #       render :edit 
+  #     end
+  #   end
+  # end
 
-  def destroy
-    @participant.destroy
-    respond_to do |format|
-      redirect_to participants_url, notice: 'Participant was successfully destroyed.'
-    end
-  end
+  # def destroy
+  #   @participant.destroy
+  #   respond_to do |format|
+  #     redirect_to participants_url, notice: 'Participant was successfully destroyed.'
+  #   end
+  # end
 
   private
 

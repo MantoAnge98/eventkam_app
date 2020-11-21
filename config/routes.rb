@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
     #routes to errors
-  get '404', :to => 'errors#not_found'
-  get '500', :to => 'errors#internal_error'
+  match "404", :to => 'errors#not_found', :via => :all
+  match "500", :to => 'errors#internal_error', :via => :all
 
 end

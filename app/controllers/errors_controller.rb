@@ -9,7 +9,7 @@ class ErrorsController < ApplicationController
   
   def internal_error
     respond_to do |format|
-      format.html { render template: 'errors/internal_error', layout: 'layouts/error', status: 500 }
+      format.html { render template: 'errors/internal_error', layout: 'layouts/application', status: 500 }
       format.all  { render nothing: true, status: 500}
     end
   end
