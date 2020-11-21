@@ -65,7 +65,7 @@
  <%end%>
 
 
-<h3>Participated Event</h3>
+<h3>Participating Event</h3>
 
 <%Participant.where(participants_id:@user.id).each do |p|%>
   <p><%=Event.find(p.event_id).title%></p>

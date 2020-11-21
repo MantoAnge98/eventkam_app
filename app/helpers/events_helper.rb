@@ -1,10 +1,10 @@
 module EventsHelper
   def joinable_event(user, event)
-    if user == true && event.date_end >= Time.now
+    if user == true && event.date_end >= Date.today
       1
-    elsif user == 'Not registered' && event.date_end >= Time.now
+    elsif user == 'Not registered' && event.date_end >= Date.today
       2
-    elsif event.date_end < Time.now
+    elsif user == true && event.date_end < Date.today
       3
     else
       4
@@ -12,11 +12,11 @@ module EventsHelper
   end
 
   def canceled_event(user, event)
-    if user == true && event.date_end >= Time.now
+    if user == true && event.date_end >= Date.today
       1
-    elsif user == 'Not registered' && event.date_end >= Time.now
+    elsif user == 'Not registered' && event.date_end >= Date.today
       2
-    elsif event.date_end < Time.now
+    elsif user == true && event.date_end < Date.today
       3
     else
       4
