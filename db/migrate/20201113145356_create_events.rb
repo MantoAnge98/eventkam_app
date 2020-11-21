@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.text :image
       t.text :content
       t.date :date_start
-      t.text :date_end
+      t.date :date_end
 
       t.timestamps
     end

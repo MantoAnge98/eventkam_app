@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     if params[:title]
       @events = Event.where(["title LIKE ?", "%#{params[:title]}%"]).page params[:page] if params[:title]
     else
-      @events = Event.all.order(creat_at: :DESC).page params[:page]
+      @events = Event.all.order(created_at: :DESC).page params[:page]
     end  
   end
 
@@ -40,7 +40,9 @@ class EventsController < ApplicationController
     @event = current_user.events.build
   end
 
-  def edit; end
+  def edit
+    @event = Event.find(params[:id])
+  end
 
 
   def create

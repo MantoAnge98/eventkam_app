@@ -11,8 +11,9 @@ class Event < ApplicationRecord
 
   validates :title , presence: true
   validates :content, presence: true, :length => { :maximum => 500 } 
-  validates :date_start, presence: true
-  validates :date_end, presence: true
+
+  validates_presence_of :date_start, :date_end 
+  validate :date_end_is_after_date_start
 
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
@@ -31,5 +32,17 @@ class Event < ApplicationRecord
       '/image.png'
     end
   end
+
+
+  private
+  def date_end_is_after_date_start
+    return if date_end.blank? || date_start.blank?
+
+    if date_end < date_start
+      errors.add(:date_end, "Cannot be before the start date")
+    end
+  end
+  
+  
 
 end

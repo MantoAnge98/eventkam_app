@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
 
   def show
+  
     @events = Participant.find_by(event_id: params[:format], participants_id: current_user[:id])
     #@favorite = @startup.favorites.find_by(startup_id: @startup.id)
     @user = User.find(params[:id])

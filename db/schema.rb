@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_215037) do
     t.text "image"
     t.text "content"
     t.date "date_start"
-    t.text "date_end"
+    t.date "date_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organizer_id"
