@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #User.create([name: "admin", email: "admin@gmail.com", avatar: "image.png", password: "ange1998", password_confirmation: "ange1998", admin: true])
-require 'faker'
+
 20.times do |n|
   name = Faker::Name.unique.name
   email = Faker::Internet.email
